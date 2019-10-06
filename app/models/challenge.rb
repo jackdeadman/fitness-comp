@@ -24,15 +24,12 @@ class Challenge < ApplicationRecord
 
   def leaderboard
     users.map { |user|
-      [ user, points_by_day(user)[-1] ]
+      [ user, points_by_day(user)[-1] || 0 ]
     }.sort_by { |x| -x[1][-1]} # sort by points
   end
 
   private
   def date_to_day(date)
-    puts date
-    puts start_date
-    puts '*********'
     (date.to_date - start_date.to_date).to_i
   end
 end

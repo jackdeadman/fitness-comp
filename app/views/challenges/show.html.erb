@@ -97,6 +97,7 @@ data = {
 </div>
 
 <%= link_to "Log activity", new_activity_path, class: 'btn btn-primary' %>
+<%= link_to "Add Participant", add_participant_path(@challenge.id), class: 'btn btn-default' %>
 
 <h2>Activity</h2>
 <%= render @challenge.activities.order(:date) %>
