@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "2.6.5"
 
+gem 'chartjs-ror'
 gem "active_type", ">= 0.3.2"
 gem "autoprefixer-rails", ">= 5.0.0.1"
 gem "bcrypt", "~> 3.1.7"
@@ -23,6 +24,7 @@ gem "sass-rails", "~> 6.0"
 gem "sidekiq", ">= 4.2.0"
 gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
+gem "devise"
 
 group :production do
   gem "postmark-rails"

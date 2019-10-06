@@ -1,0 +1,29 @@
+<% provide(:title) do %>
+  Acitivty Type #<%= @acitivty_type.id %>
+<% end %>
+
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <th class="col-sm-2">Name</th>
+      <td><%= @acitivty_type.name %></td>
+    </tr>
+    <tr>
+      <th class="col-sm-2">Emoji</th>
+      <td><%= @acitivty_type.emoji %></td>
+    </tr>
+    <tr>
+      <th class="col-sm-2">Measure</th>
+      <td><%= @acitivty_type.measure %></td>
+    </tr>
+    <tr>
+      <th class="col-sm-2">Time conversion</th>
+      <td><%= @acitivty_type.time_conversion %></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>
+  <%= link_to "Edit", edit_acitivty_type_path(@acitivty_type), class: "btn btn-primary" %>
+  <%= link_to "Back", acitivty_types_path, class: "btn btn-link" %>
+</p>

@@ -1,0 +1,14 @@
+<%= bootstrap_form_for(@activity_type) do |f| %>
+
+  <%= f.alert_message "Please review the problems below:" %>
+
+  <%= f.text_field :name %>
+  <%= f.text_field :emoji %>
+  <!-- <%= f.number_field :measure %> -->
+  <%= f.select :measure, ActivityType.measures.keys.map { |w| [w.humanize, w] } %>
+  <%= f.number_field :time_conversion %>
+
+  <%= f.primary %>
+  <%= link_to "Back", activity_types_path, class: "btn btn-link" %>
+
+<% end %>

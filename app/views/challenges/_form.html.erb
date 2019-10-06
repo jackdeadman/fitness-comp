@@ -1,0 +1,12 @@
+<%= bootstrap_form_for(@challenge) do |f| %>
+
+  <%= f.alert_message "Please review the problems below:" %>
+
+  <%= f.text_field :title %>
+  <%= f.datetime_select :start_date %>
+  <%= f.datetime_select :end_date %>
+
+  <%= f.primary %>
+  <%= link_to "Back", challenges_path, class: "btn btn-link" %>
+
+<% end %>

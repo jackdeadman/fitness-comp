@@ -1,0 +1,107 @@
+<% provide(:title) do
+  @challenge.title
+end %>
+
+
+<%
+data = {
+  labels: (0..@challenge.days).to_a,
+  datasets: @challenge.users.map { |user|
+    {
+        label: user.username,
+        backgroundColor: "rgba(220,220,220,0.2)",
+        borderColor: "rgba(220,220,220,1)",
+        data: @challenge.points_by_day(user).map { |date, value| { x: date, y: value } }
+    }
+  }
+}
+%>
+
+
+
+<div class="row">
+  <div class="col-sm-6">
+    <div class="chart">
+      <%= line_chart data, options: { responsive: true, maintainAspectRatio: false} %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+
+    <div class="center">
+      <div class="top3">
+        <% if @leaderboard.count > 1 %>
+        <div class="two item">
+          <div class="pos">
+            2
+          </div>
+          <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/44.jpg&#39;)"></div>
+          <div class="name">
+            <%= @leaderboard[1][0].username %>
+          </div>
+          <div class="score">
+            <%= @leaderboard[1][1][1] %>
+          </div>
+        </div>
+        <% end %>
+        <% if @leaderboard.count > 0 %>
+        <div class="one item">
+          <div class="pos">
+            1
+          </div>
+          <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/31.jpg&#39;)"></div>
+          <div class="name">
+            <%= @leaderboard[0][0].username %>
+          </div>
+          <div class="score">
+            <%= @leaderboard[0][1][1] %>
+          </div>
+        </div>
+        <% end %>
+        <% if @leaderboard.count > 2 %>
+        <div class="three item">
+          <div class="pos">
+            3
+          </div>
+          <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/91.jpg&#39;)"></div>
+          <div class="name">
+            <%= @leaderboard[2][0].username %>
+          </div>
+          <div class="score">
+            <%= @leaderboard[2][1][1] %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <% if @leaderboard.count > 3 %>
+      <div class="list">
+          <% @leaderboard.each_with_index do |position, i| %>
+            <div class="item">
+              <div class="pos">
+                <%= i+4 %>
+              </div>
+              <div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/29.jpg&#39;)"></div>
+              <div class="name">
+                <%= position[0].username %>
+              </div>
+              <div class="score">
+                <%= position[1][1] %>
+              </div>
+            </div>
+            <% end %>
+      </div>
+      <% end %>
+    </div>
+
+
+  </div>
+</div>
+
+<%= link_to "Log activity", new_activity_path, class: 'btn btn-primary' %>
+
+<h2>Activity</h2>
+<%= render @challenge.activities.order(:date) %>
+
+<!-- <p>
+  <%= link_to "Edit", edit_challenge_path(@challenge), class: "btn btn-primary" %>
+  <%= link_to "Back", challenges_path, class: "btn btn-link" %>
+</p> -->

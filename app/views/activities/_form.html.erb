@@ -1,0 +1,11 @@
+<%= bootstrap_form_for(@activity) do |f| %>
+  <%= f.alert_message "Please review the problems below:" %>
+  <%= f.select(:challenge_id, Challenge.all.collect { |v| [ v.title, v.id ] }) %>
+  <%= f.select(:user_id, User.all.collect { |v| [ v.username, v.id ] }) %>
+
+  <%= f.select(:activity_type_id, ActivityType.all.collect { |v| [ v.name, v.id ] }) %>
+  <%= f.number_field :amount, label: 'Time (minutes)' %>
+  <%= f.date_select :date %>
+
+  <%= f.primary %>
+<% end %>

@@ -1,0 +1,14 @@
+<div>
+  <h3><%= activity.user.username %></h3>
+  <% if activity.activity_type.time? %>
+    Time: <%= activity.amount %>
+  <% else %>
+    Steps: <%= activity.amount %>
+  <% end %><br>
+  Sport: <%= activity.activity_type.name %><br>
+  Points: <%= activity.points %>
+</div>
+
+<!-- <div><%= activity.user.username %><div>
+  <div><%= activity.activity_type.name %><div>
+<div><%= activity.points %><div> -->

@@ -1,0 +1,42 @@
+<% provide(:title, "Listing activity_types") %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Emoji</th>
+      <th>Measure</th>
+      <th>Time conversion</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activity_types.each do |activity_type| %>
+      <tr>
+        <td><%= activity_type.name %></td>
+        <td><%= activity_type.emoji %></td>
+        <td><%= activity_type.measure %></td>
+        <td><%= activity_type.time_conversion %></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to activity_type, class: "btn btn-xs btn-default" do %>
+              <%= fa_icon("eye", text: "Show") %>
+            <% end %>
+            <%= link_to edit_activity_type_path(activity_type), class: "btn btn-xs btn-default" do %>
+              <%= fa_icon("pencil", text: "Edit") %>
+            <% end %>
+            <%= link_to activity_type, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this activity_type?" } do %>
+              <%= fa_icon("trash-o", text: "Destroy") %>
+            <% end %>
+          </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_activity_type_path, class: "btn btn-default" do %>
+  <%= fa_icon("plus", text: "New Activity type") %>
+<% end %>

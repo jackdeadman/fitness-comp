@@ -1,0 +1,13 @@
+<%= bootstrap_form_for(@acitivty_type) do |f| %>
+
+  <%= f.alert_message "Please review the problems below:" %>
+
+  <%= f.text_field :name %>
+  <%= f.text_field :emoji %>
+  <%= f.number_field :measure %>
+  <%= f.number_field :time_conversion %>
+
+  <%= f.primary %>
+  <%= link_to "Back", acitivty_types_path, class: "btn btn-link" %>
+
+<% end %>

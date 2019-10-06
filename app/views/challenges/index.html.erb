@@ -1,0 +1,40 @@
+<% provide(:title, "Listing challenges") %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @challenges.each do |challenge| %>
+      <tr>
+        <td><%= challenge.title %></td>
+        <td><%= challenge.start_date %></td>
+        <td><%= challenge.end_date %></td>
+        <td>
+          <div class="btn-group">
+            <%= link_to challenge, class: "btn btn-xs btn-default" do %>
+              <%= fa_icon("eye", text: "Show") %>
+            <% end %>
+            <%= link_to edit_challenge_path(challenge), class: "btn btn-xs btn-default" do %>
+              <%= fa_icon("pencil", text: "Edit") %>
+            <% end %>
+            <%= link_to challenge, class: "btn btn-xs btn-danger", method: :delete, data: { confirm: "Are you sure you want to delete this challenge?" } do %>
+              <%= fa_icon("trash-o", text: "Destroy") %>
+            <% end %>
+          </div>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to new_challenge_path, class: "btn btn-default" do %>
+  <%= fa_icon("plus", text: "New Challenge") %>
+<% end %>
