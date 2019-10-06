@@ -1,16 +1,16 @@
 <% provide(:title) do
-  @challenge.title
+  "#{@challenge.title} (#{@challenge.start_date.strftime('%B %e, %Y')} - #{@challenge.end_date.strftime('%B %e, %Y')})"
 end %>
 
 
 <%
 data = {
   labels: (0..@challenge.days).to_a,
-  datasets: @challenge.users.map { |user|
+  datasets: @challenge.users.to_a.each_with_index.map { |user, i|
     {
         label: user.username,
         backgroundColor: "rgba(220,220,220,0.2)",
-        borderColor: "rgba(220,220,220,1)",
+        borderColor: @colors[i],
         data: @challenge.points_by_day(user).map { |date, value| { x: date, y: value } }
     }
   }

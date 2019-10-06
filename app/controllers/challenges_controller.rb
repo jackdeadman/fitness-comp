@@ -9,6 +9,7 @@ class ChallengesController < ApplicationController
   # GET /challenges/1
   def show
     @leaderboard = @challenge.leaderboard
+    @colors = 100.times.map{"#%06x" % (rand * 0x1000000)}
   end
 
   # GET /challenges/new

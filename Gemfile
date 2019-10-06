@@ -26,9 +26,9 @@ gem "turbolinks", "~> 5"
 gem "webpacker", "~> 4.0"
 gem "devise"
 
-group :production do
-  gem "postmark-rails"
-end
+# group :production do
+#   gem "postmark-rails"
+# end
 
 group :development, :test do
   gem "byebug"
