@@ -3,10 +3,10 @@
   <%= f.alert_message "Please review the problems below:" %>
 
   <%= f.text_field :name %>
-  <%= f.text_field :emoji %>
+  <!-- <%= f.text_field :emoji %> -->
   <!-- <%= f.number_field :measure %> -->
   <%= f.select :measure, ActivityType.measures.keys.map { |w| [w.humanize, w] } %>
-  <%= f.number_field :time_conversion %>
+  <%= f.number_field :time_conversion, label: 'Number of steps per minute (N/A for steps measure)' %>
 
   <%= f.primary %>
   <%= link_to "Back", activity_types_path, class: "btn btn-link" %>

@@ -74,7 +74,7 @@ data = {
       </div>
       <% if @leaderboard.count > 3 %>
       <div class="list">
-          <% @leaderboard.each_with_index do |position, i| %>
+          <% @leaderboard[3..@leaderboard.length].each_with_index do |position, i| %>
             <div class="item">
               <div class="pos">
                 <%= i+4 %>
@@ -96,7 +96,7 @@ data = {
   </div>
 </div>
 
-<%= link_to "Log activity", new_activity_path, class: 'btn btn-primary' %>
+<%= link_to "Log activity", new_activity_path(challenge_id: @challenge), class: 'btn btn-primary' %>
 <%= link_to "Add Participant", add_participant_path(@challenge.id), class: 'btn btn-default' %>
 
 <h2>Activity</h2>

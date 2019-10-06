@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
-    @activity = Activity.new(user: current_user)
+    @activity = Activity.new(user: current_user, challenge_id: params[:challenge_id])
   end
 
   # GET /activities/1/edit

@@ -1,4 +1,4 @@
 class ActivityType < ApplicationRecord
-  enum measure: [ :time, :steps ]
+  enum measure: [ :steps, :time ]
 
 end
