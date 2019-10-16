@@ -99,8 +99,13 @@ data = {
 <%= link_to "Log activity", new_activity_path(challenge_id: @challenge), class: 'btn btn-primary' %>
 <%= link_to "Add Participant", add_participant_path(@challenge.id), class: 'btn btn-default' %>
 
-<h2>Activity</h2>
-<%= render @challenge.activities.order(:date) %>
+<div class="row">
+  <div class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+    <h2>Activity</h2>
+    <%= render @challenge.activities.order(:date) %>
+  </div>
+</div>
+
 
 <!-- <p>
   <%= link_to "Edit", edit_challenge_path(@challenge), class: "btn btn-primary" %>

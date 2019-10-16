@@ -1,12 +1,21 @@
-<div>
-  <h3><%= activity.user.username %></h3>
-  <% if activity.activity_type.time? %>
-    Time: <%= activity.amount %>
-  <% else %>
-    Steps: <%= activity.amount %>
-  <% end %><br>
-  Sport: <%= activity.activity_type.name %><br>
-  Points: <%= activity.points %>
+<div class="panel panel-default">
+  <div class="panel-heading clearfix">
+    <div class="pull-left">
+      <h3 class="panel-title"><%= activity.user.username %></h3>
+      <small><%= activity.date %></small>
+    </div>
+    <div class="pull-right">
+      <p class="panel-title text-right"><%= activity.points %></p>
+    </div>
+  </div>
+  <div class="panel-body">
+    <% if activity.activity_type.time? %>
+      Time: <%= activity.amount %>
+    <% else %>
+      Steps: <%= activity.amount %>
+    <% end %><br>
+    Sport: <%= activity.activity_type.name %><br>
+  </div>
 </div>
 
 <!-- <div><%= activity.user.username %><div>
